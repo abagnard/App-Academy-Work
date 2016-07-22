@@ -57,8 +57,8 @@
       largest_sum
     end
 
-      list = [5, 3, -7]
-      p largest_contiguous_subsum1(list)
+      # list = [2, 3, -6, 7, -6, 7]
+      # p largest_contiguous_subsum1(list)
 
 
     # You have an array of integers and you want to find the largest contiguous (together in sequence) sub-sum. Find the sums of all contiguous sub-arrays and return the max.

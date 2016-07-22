@@ -1,5 +1,6 @@
 require_relative "mystack"
 
+<<<<<<< HEAD
 class StackQueue
   # def initialize
   #   @store = Stack.new.store
@@ -24,11 +25,36 @@ class StackQueue
   end
 
   def size
-    @stack1.size + @stack2.size 
+    @stack1.size + @stack2.size
   end
 
   def empty?
     @stack1.empty? && @stack2.empty?
+=======
+def StackQueue
+  def initialize
+    @store = Stack.new.store
+  end
+
+  def enqueque(el)
+    @store.push(el)
+  end
+
+  def dequeue
+    @store.shift
+  end
+
+  def peek
+    @store.first
+  end
+
+  def size
+    @store.length
+  end
+
+  def empty?
+    @store.empty?
+>>>>>>> 60ca954bdf35ba39f694ba445731b238523bda92
   end
 
 end
