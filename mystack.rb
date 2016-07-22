@@ -8,7 +8,7 @@ class MyStack
   end
 
   def pop
-    @store.pop
+    @store.pop   
   end
 
   def peek
