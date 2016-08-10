@@ -1,0 +1,13 @@
+Sub Form
+<% action_type = @sub.persisted? ? sub_url(@sub) : subs_url  %>
+<% method_type = @sub.persisted? ? 'patch' : 'post'    %>
+<% button_type = @sub.persisted? ? 'Update' : 'Create'    %>
+<form action="<%=action_type  %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="<%= method_type %>">
+<label>Title<input type="text" name="sub[title]" value="<%= @sub.title %>"></label>
+
+<label>Description <textarea name="sub[description]"><%=@sub.description%></textarea> </label>
+
+  <input type="submit"  value="<%= button_type %>">
+</form>

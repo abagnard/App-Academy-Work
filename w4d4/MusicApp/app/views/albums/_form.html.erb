@@ -1,0 +1,26 @@
+<% action_kind = album.persisted? ? album_url(album) : band_url(album.band) %>
+<% method_kind = album.persisted? ? "PATCH" :  %>
+<% button_name = album.persisted? ? "Update Album" : "Create Album"%>
+
+<form action="<%= action_kind %>" method="POST">
+  <input type="hidden" name="_method" value="<%= method_kind %>">
+
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+
+    <!-- <p>
+      <label>Album Name
+        <input type="text" name="album[name]">
+      </label>
+    </p>
+
+    <p>
+      <label>Live or Studio
+        <input type="password" name="user[password]">
+      </label>
+    </p> -->
+
+    <input type="submit" value="<%= button_name %>">
+</form>

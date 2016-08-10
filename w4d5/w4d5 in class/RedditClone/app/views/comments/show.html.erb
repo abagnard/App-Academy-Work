@@ -1,0 +1,19 @@
+<h2><%=@comment.content  %></h2>
+<h4>Created by <%= @author.username %> </h4>
+
+<br>
+
+<label> Content: <%= @comment.content %> </label>
+
+
+<br>
+<label> Replies:
+  <% @children.each do |child| %>
+    <%= child.content  %>
+    <%= child.author.username %>
+  <% end %>
+</label>
+
+<%= render "form" %>
+
+<%= button_to 'Post', post_url(@post), method: :get %>

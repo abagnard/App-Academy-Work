@@ -1,0 +1,25 @@
+<%action_type = @post.persisted? ? post_url(@post) : posts_url  %>
+<% method_type = @post.persisted? ? 'patch' : 'post' %>
+<% button_type = @post.persisted? ? 'Update Post' : 'Create New' %>
+<form  action="<%= action_type %>" method="post">
+<input type="hidden" name="_method" value="<%= method_type %>">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<label>Title:<input type="text" name="post[title]" value="<%= @post.title %>"> </label>
+<label>Link (optional):<input type="text" name="post[url]" value="<%= @post.url %>"> </label>
+
+<label>Content (optional):<textarea name="post[content]" rows="8" cols="40"><%= @post.content %></textarea> </label>
+
+<input type="hidden" name="post[sub_ids][]" value="">
+
+<% @subs.try(:each) do |subby| %>
+<label>
+<input type="checkbox" name="post[sub_ids][]"
+        value="<%= subby.id %>"
+        <%= "checked" if @post.subs.include?(subby) %> >
+        <%= subby.title %>
+</label>
+<% end %>
+
+<input type="submit"  value="<%= button_type %>">
+</form>
